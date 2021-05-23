@@ -2,10 +2,10 @@ import Kingfisher
 
 extension UIViewController {
     public func showError(_ error: Error) {
-        let alert = UIAlertController(title: "error_title".localized(),
+        let alert = UIAlertController(title: "Error",
                                       message: error.localizedDescription,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "ok_button".localized(), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
 }

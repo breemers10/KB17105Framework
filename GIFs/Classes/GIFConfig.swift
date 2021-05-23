@@ -10,7 +10,7 @@ public class GIFFrame {
         GIFConfig.apiKey = apiKey
     }
 
-    public var onCellSelect: ((String) -> Void)?
+    public var onCellSelect: ((String?) -> Void)?
     public var onSearchBarTouch: (() -> Void)?
 
     public func controller() -> UINavigationController {

@@ -27,7 +27,6 @@
 		31859075264EDCC500F180CC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3185904C264EDCC500F180CC /* NetworkService.swift */; };
 		31859076264EDCC500F180CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3185904F264EDCC500F180CC /* LaunchScreen.storyboard */; };
 		31859077264EDCC500F180CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31859051264EDCC500F180CC /* Assets.xcassets */; };
-		31859078264EDCC500F180CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31859053264EDCC500F180CC /* Localizable.strings */; };
 		318591592651A7CE00F180CC /* GIFConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318591582651A7CE00F180CC /* GIFConfig.swift */; };
 		CDF15745D8D3F407EF8755E9 /* Pods_GIFs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F434F794915410F0C2C343B /* Pods_GIFs.framework */; };
 /* End PBXBuildFile section */
@@ -57,8 +56,6 @@
 		3185904C264EDCC500F180CC /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3185904F264EDCC500F180CC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31859051264EDCC500F180CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		31859054264EDCC500F180CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		31859055264EDCC500F180CC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		318591582651A7CE00F180CC /* GIFConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFConfig.swift; sourceTree = "<group>"; };
 		5FD433213C16D9A0BA747BD0 /* Pods-GIFs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIFs.debug.xcconfig"; path = "Target Support Files/Pods-GIFs/Pods-GIFs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -254,7 +251,6 @@
 			children = (
 				3185904E264EDCC500F180CC /* LaunchScreen */,
 				31859050264EDCC500F180CC /* Assets */,
-				31859052264EDCC500F180CC /* Localization */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -273,14 +269,6 @@
 				31859051264EDCC500F180CC /* Assets.xcassets */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		31859052264EDCC500F180CC /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				31859053264EDCC500F180CC /* Localizable.strings */,
-			);
-			path = Localization;
 			sourceTree = "<group>";
 		};
 		450747141A47F0A54DD9CA70 /* Frameworks */ = {
@@ -360,7 +348,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31859078264EDCC500F180CC /* Localizable.strings in Resources */,
 				31859076264EDCC500F180CC /* LaunchScreen.storyboard in Resources */,
 				31859077264EDCC500F180CC /* Assets.xcassets in Resources */,
 				31457E98265813590030E33E /* ViewController.storyboard in Resources */,
@@ -438,18 +425,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		31859053264EDCC500F180CC /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				31859054264EDCC500F180CC /* en */,
-				31859055264EDCC500F180CC /* ru */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		315AB61926401FDD008E877F /* Debug */ = {

@@ -1,7 +1,5 @@
 import RxSwift
 import RxCocoa
-
-import Localize_Swift
 import Kingfisher
 
 protocol PGIFListVM {
@@ -116,8 +114,13 @@ final class GIFListVM: PGIFListVM {
             .subscribe(onNext: { [weak self] result in
                 switch result {
                 case .error(let error):
+                    print(error)
                     self?.error.accept(error)
-                case .next(let images):
+                case .next(var images):
+                    images.data.removeAll { (a) -> Bool in
+                        return a.images?.downsized?.url == nil
+                    }
+                    print(images)
                     self?.addImages(images)
                 case .completed:
                     self?.isLoading.accept(false)
@@ -138,8 +141,11 @@ final class GIFListVM: PGIFListVM {
                 switch result {
                 case .error(let error):
                     self?.error.accept(error)
-                case .next(let images):
+                case .next(var images):
                     if images.data.isEmpty { self?._showLabelTrigger.accept(true) }
+                    images.data.removeAll { (a) -> Bool in
+                        return a.images?.downsized?.url == nil
+                    }
                     self?.addImages(images)
                 case .completed:
                     self?.isLoading.accept(false)

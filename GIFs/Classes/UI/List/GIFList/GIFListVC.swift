@@ -8,7 +8,7 @@ public class GIFListVC: UIViewController {
     private var collectionView: UICollectionView!
     private let noResultsLabel = UILabel()
 
-    var onCellSelect: ((String) -> Void)?
+    var onCellSelect: ((String?) -> Void)?
     var onSearchBarTouch: (() -> Void)?
 
     var viewModel: PGIFListVM!
@@ -60,7 +60,7 @@ public class GIFListVC: UIViewController {
             .asDriver()
             .drive(collectionView.rx.items(cellIdentifier: "cellID",
                                            cellType: GIFCell.self)) { _, data, cell in
-                cell.configure(url: data.images.downsized.address)
+                cell.configure(url: data.images?.downsized?.address)
             }.disposed(by: bag)
 
         collectionView.rx.itemSelected
@@ -68,7 +68,7 @@ public class GIFListVC: UIViewController {
             .throttle(.seconds(2), latest: false, scheduler: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                self.onCellSelect?(self.viewModel.gifImages.value[indexPath.row].images.original.url)
+                self.onCellSelect?(self.viewModel.gifImages.value[indexPath.row].images?.original?.url)
             })
             .disposed(by: bag)
 
@@ -155,7 +155,7 @@ public class GIFListVC: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "searchbar_text".localized()
+        searchController.searchBar.placeholder = "Search GIF's"
         searchController.searchBar.tintColor = .white
         searchController.searchBar.barTintColor = .white
         searchController.searchBar.sizeToFit()
@@ -177,6 +177,6 @@ public class GIFListVC: UIViewController {
 extension GIFListVC: LayoutDelegate {
     public func cellSize(indexPath: IndexPath) -> CGSize {
         let image = viewModel.gifImages.value[indexPath.row]
-        return CGSize(width: image.images.downsized.w, height: image.images.downsized.h)
+        return CGSize(width: image.images?.downsized?.w ?? 0, height: image.images?.downsized?.h ?? 0)
     }
 }

@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private lazy var fullGifList: UINavigationController = {
         let vc = listConfig.controller()
         listConfig.onCellSelect = { [weak self] gif in
-            guard let url = URL.init(string: gif) else { return }
+            guard let gif = gif, let url = URL.init(string: gif) else { return }
             self?.resultImage.kf.setImage(with: url)
             self?.dismiss(animated: true, completion: nil)
         }
@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let vc = keyboardConfig.controller()
         keyboardConfig.onCellSelect = { [weak self] gif in
             self?.hideGifKeyboard()
-            guard let url = URL.init(string: gif) else { return }
+            guard let gif = gif, let url = URL.init(string: gif) else { return }
             self?.resultImage.kf.setImage(with: url)
         }
         keyboardConfig.onSearchBarTouch = { [weak self] in

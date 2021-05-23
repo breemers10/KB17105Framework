@@ -13,9 +13,6 @@ target 'GIFs' do
   #UI
   pod 'Kingfisher', '~> 5.13'
 
-  #Localization
-  pod 'Localize-Swift', '~> 2.0'
-
   #Utils
   pod 'ReachabilitySwift', '~> 5.0'
 

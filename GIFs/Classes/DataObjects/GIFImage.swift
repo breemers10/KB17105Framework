@@ -1,17 +1,17 @@
 import UIKit
 
 struct ImagesData: Codable {
-    let data: [GIFData]
+    var data: [GIFData]
 }
 
 struct GIFData: Codable, Hashable {
-    var id: String
-    var images: Images
+    var id: String?
+    var images: Images?
 }
 
 struct Images: Codable, Hashable {
-    var original: ImageInfo
-    var downsized: ImageInfo
+    var original: ImageInfo?
+    var downsized: ImageInfo?
 
     enum CodingKeys: String, CodingKey {
         case original
@@ -20,17 +20,17 @@ struct Images: Codable, Hashable {
 }
 
 struct ImageInfo: Codable, Hashable {
-    var height: String
-    var width: String
-    var url: String
+    var height: String?
+    var width: String?
+    var url: String?
 
     var address: URL {
-        return url.asURL()
+        return url?.asURL() ?? URL(string: "https://media.giphy.com/media/8L0Pky6C83SzkzU55a/giphy.gif")!
     }
 
     var aspectRatio: Double {
-        let heightDouble = NumberFormatter().number(from: height)?.doubleValue ?? 0
-        let widthDouble = NumberFormatter().number(from: width)?.doubleValue ?? 0
+        let heightDouble = NumberFormatter().number(from: height ?? "0")?.doubleValue ?? 0
+        let widthDouble = NumberFormatter().number(from: width ?? "0")?.doubleValue ?? 0
         return heightDouble / widthDouble
     }
 
